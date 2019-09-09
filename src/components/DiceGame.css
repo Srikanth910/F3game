@@ -1,0 +1,23 @@
+.DiceGame {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-top: 80px;
+}
+
+.DiceGame-btn {
+	background: rgba(166,117,244,0.95);
+    font-size: 11px;
+    font-weight: 100;
+    color: rgba(255,255,255,0.95);
+    border-radius: 30px;
+    height: 34px;
+    margin-top: 10px;
+    padding: 6px 16px;
+    outline: none;
+}
+
+.DiceGame-btn[disabled] {
+	background: rgba(33, 33, 33, 0.3);
+}
