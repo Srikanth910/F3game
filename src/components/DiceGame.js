@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 
 // const URL = 'ws://localhost:8080'
 
-const URL = 'wss://f3-game-server.herokuapp.com/:8080'
+const URL = 'wss://f3-game-server.herokuapp.com/:21140'
 
 
 const ws = new WebSocket(URL)
