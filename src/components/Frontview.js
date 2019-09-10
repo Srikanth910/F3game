@@ -11,7 +11,13 @@ import Dice from './Dice.js'
 
 
 
-const URL = 'wss://f3-game-server.herokuapp.com'
+// const URL = 'wss://f3-game-server.herokuapp.com'
+
+const URL = 'wss://devf3srv.jaqk.in';
+
+
+
+//https://devf3srv.jaqk.in/
 const ws = new WebSocket(URL)
 
 
