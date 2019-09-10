@@ -3,9 +3,22 @@ body {
     margin: 0;
     padding: 0;
 }
+/* .gamesize{
+    width:1024px ;
+    height: 1440px;
 
+} */
 
+.chatt{
+    width: 85px;
+    position: relative;
+    top: 27%;
+}
 
+.bal{
+    height: 39px;
+    width: 124px;
+}
 .bet_range{
     background: #e4e1e1;
     font-size: 10px;
@@ -13,7 +26,7 @@ body {
     font-weight: 600;
     font-family: sans-serif;
     border-radius: 10px;
-    
+
     }
 
 small{
@@ -22,7 +35,8 @@ small{
   }
 
 .bg-color{
-    background-color: black;
+    /* background-color: black; */
+    background-image: url('../assets/bgg.jpeg');
     height:550px;
     position: relative;
     width: 100%
@@ -38,7 +52,7 @@ small{
     top: 0;
 } */
 .bg{
-background: #cccdcf;
+/* background: #cccdcf; */
 border-radius: 10px;
 height: 100%;
 }
@@ -89,8 +103,21 @@ color: #561013;
 .btn_img{
 height: 100%;
 width:100%;
-padding: 1px;
+padding: 3px;
+position:relative;
+z-index:1;
 }
+
+.number{
+
+    position:absolute;
+    left: 36%;
+    top: 34%;
+    height: 22px;
+    z-index:2;
+}
+
+
 .parant {
 height: 75px;
 position: relative;
@@ -106,22 +133,22 @@ background: white;
 }
 /* .bar-1 {
 left: 1%;
-} */ .bar-2{ 
+} */ .bar-2{
 left: 15%;
-} 
+}
 .bar-3{
-left: 29%; 
+left: 29%;
 }
 /* } */
  .bar-4{
 left: 43%;
-} 
+}
  .bar-5{
 left: 56%;
-} 
+}
 .bar-6{
 left: 70%;
-} 
+}
 /* .bar{ */
 /* visibility: hidden; */
 /* /* } */
@@ -129,6 +156,7 @@ left: 70%;
 background: #cccdcf;
 border-radius: 10px;
 height: 66px;
+width: 50px;
 }
 .slider {
 -webkit-appearance: none;
@@ -160,7 +188,7 @@ transition: opacity .2s;
     .slider::-moz-range-thumb {
          width: 30px;
         height: 30px;
-        
+
         border-radius: 50%;
          background:url('../assets/bar1.png');
          /* background-color: #561013; */
