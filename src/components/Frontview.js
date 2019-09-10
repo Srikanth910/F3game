@@ -13,7 +13,7 @@ import Dice from './Dice.js'
 
 const URL = 'wss://devf3srv.jaqk.in'
 const ws = new WebSocket(URL)
- 
+
 
 
 export default class Frontview extends Component {
@@ -172,7 +172,7 @@ export default class Frontview extends Component {
                 }))
                 let el = document.createElement("div");
                 el.setAttribute("style", "position:absolute;top:30%;left:40%;color:blue ;");
-                el.innerHTML =  alert(`Congratulation you won ${value}  betAmount : ${player.amount}  winAmount : ${player.winAmount}`);
+                el.innerHTML = alert(`Congratulation you won ${value}  betAmount : ${player.amount}  winAmount : ${player.winAmount}`);
                 setTimeout(function () {
                   el.parentNode.removeChild(el);
                 }, 8000);
@@ -184,7 +184,7 @@ export default class Frontview extends Component {
                 }))
                 let el = document.createElement("div");
                 el.setAttribute("style", "position:absolute;top:30%;left:40%;color:white;");
-                el.innerHTML =alert (`Sorry you gained ${value} betAmount : ${player.amount} winAmount : ${player.winAmount}`);
+                el.innerHTML = alert(`Sorry you gained ${value} betAmount : ${player.amount} winAmount : ${player.winAmount}`);
                 setTimeout(function () {
                   el.parentNode.removeChild(el);
                 }, 8000);
@@ -471,22 +471,22 @@ export default class Frontview extends Component {
                       <div className="input-group">
                         <input className="input-group-append w-100 bg text-black font_color" type="text" name="text"
                           placeholder="CLICK TO CHAT" /><span>  <i class="fas fa-paper-plane chat_send_button" aria-hidden="true"></i>
-                          </span>
+                        </span>
                       </div>
                     </div>
                     <div className="col-12 border-right">
                       <div className="row d-flex flex-nowrap">
 
-                        <div className="col bg m-1 p-0 text-center">
+                        <div className="col  m-1 p-0 text-center">
                           {/* <p className="font_color text-center p-auto m-0">BALANCE</p> */}
-                          <img src ={process.env.PUBLIC_URL +"/balance.png"} className="  bal text-center p-auto m-0"/>
+                          <img src={process.env.PUBLIC_URL + "/balance.png"} className="  bal text-center p-auto m-0" />
                           <span className="number"><small>${this.state.balance}</small></span>
 
                         </div>
 
-                        <div className="col bg m-1  text-center">
+                        <div className="col  m-1  text-center">
                           {/* <p className="font_color text-center p-auto m-0">TOTAL BET</p> */}
-                          <img src ={process.env.PUBLIC_URL +"/total-bet.png"} className="  bal text-center p-auto m-0"/>
+                          <img src={process.env.PUBLIC_URL + "/total-bet.png"} className="  bal text-center p-auto m-0" />
                           <span className="number"><small>$ {this.state.total}</small></span>
                         </div>
                       </div>
@@ -498,8 +498,8 @@ export default class Frontview extends Component {
                       <div className="col-2 p-0">
                         {/* <p className="font_color my-2">CLICK THE NUMBERS TO PLACE BET
                                 </p> */}
-              <img src ={process.env.PUBLIC_URL +"/text.png"}    className="font_color my-2 chatt"/>
-                    
+                        <img src={process.env.PUBLIC_URL + "/text.png"} className="font_color my-2 chatt" />
+
                       </div>
 
 
@@ -521,8 +521,8 @@ export default class Frontview extends Component {
                           </div>}
                         <div className="col-2 button_img btn p-0 parant h-100">
 
-                          <img onClick={this.handlerclick} src={process.env.PUBLIC_URL +"/1-bg.png"} alt="" className="btn_img" />
-                          <img src={process.env.PUBLIC_URL +"/1.png"} alt="" className="number" />
+                          <img onClick={this.handlerclick} src={process.env.PUBLIC_URL + "/1-bg.png"} alt="" className="btn_img" />
+                          <img src={process.env.PUBLIC_URL + "/1.png"} alt="" className="number" />
 
                         </div>
 
@@ -531,12 +531,12 @@ export default class Frontview extends Component {
                           <span className="bet_range" id="demo">{this.state.value}</span>
                           <div className="slidecontainer">
                             <input onChange={this.handlechange} type="range" min={0} max={1000} value={this.state.value} className="slider" id="myRange" />
-                            
+
                           </div>
                         </div>}
                         <div className="col-2 button_img btn p-0 h-100 parant">
                           <img onClick={this.handlerclick1} src={process.env.PUBLIC_URL + "/2-bg.png"} alt="" className="btn_img" />
-                          <img src={process.env.PUBLIC_URL +"/2.png"} alt="" className="number" />
+                          <img src={process.env.PUBLIC_URL + "/2.png"} alt="" className="number" />
 
                         </div>
                         {/* <!--button-3 && bar-3--> */}
@@ -549,7 +549,7 @@ export default class Frontview extends Component {
                         </div>}
                         <div className="col-2 button_img btn p-0 h-100 parant">
                           <img onClick={this.handlerclick2} src={process.env.PUBLIC_URL + "/3-bg.png"} alt="" className="btn_img" />
-                          <img src={process.env.PUBLIC_URL +"/3.png"} alt="" className="number" />
+                          <img src={process.env.PUBLIC_URL + "/3.png"} alt="" className="number" />
                         </div>
                         {/* <!--button-4 && bar-4--> */}
                         {this.state.handlerclick === "handlerclick3" && <div className="col-2 bar m-0 child bar-4" id="bar4">
@@ -561,7 +561,7 @@ export default class Frontview extends Component {
                         </div>}
                         <div className="col-2 button_img btn p-0 h-100 parant">
                           <img onClick={this.handlerclick3} src={process.env.PUBLIC_URL + "/4-bg.png"} alt="" className="btn_img" />
-                          <img src={process.env.PUBLIC_URL +"/4.png"} alt="" className="number" />
+                          <img src={process.env.PUBLIC_URL + "/4.png"} alt="" className="number" />
                         </div>
 
                         {/* <!--button-5 && bar-5--> */}
@@ -574,7 +574,7 @@ export default class Frontview extends Component {
                         </div>}
                         <div className="col-2 button_img btn p-0 h-100 parant">
                           <img onClick={this.handlerclick4} src={process.env.PUBLIC_URL + "/5-bg.png"} alt="" className="btn_img" />
-                          <img src={process.env.PUBLIC_URL +"/5.png"} alt="" className="number" />
+                          <img src={process.env.PUBLIC_URL + "/5.png"} alt="" className="number" />
                         </div>
 
                         {/* <!--button-6 && bar-6--> */}
@@ -587,7 +587,7 @@ export default class Frontview extends Component {
                         </div>}
                         <div className="col-2 button_img btn p-0 h-100 parant">
                           <img onClick={this.handlerclick5} src={process.env.PUBLIC_URL + "/6-bg.png"} alt="" className="btn_img" />
-                          <img src={process.env.PUBLIC_URL +"/6.png"} alt="" className="number" />
+                          <img src={process.env.PUBLIC_URL + "/6.png"} alt="" className="number" />
                         </div>
 
 
@@ -613,14 +613,14 @@ export default class Frontview extends Component {
                     <span onClick={this.handleJoin} ><img className="img-fluid square" src={process.env.PUBLIC_URL + "/table.png"} /></span>
                     <span onClick={e => this.handleRoom("Dies Rolled ", 2000)}><img className="img-fluid square" src={process.env.PUBLIC_URL + "/lobby.png"} /></span>
 
-                    
+
                   </div>
                 </div>
               </div>
             </div>
 
           </div>
-          <button onClick={this.open} style={{ marginLeft:'40%', "background-color":" #8d8dae"}} >dice rolling server</button>
+          <button onClick={this.open} style={{ marginLeft: '40%', "background-color": " #8d8dae" }} >dice rolling server</button>
 
         </div>
 
