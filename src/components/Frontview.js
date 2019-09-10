@@ -4,16 +4,16 @@ import React, { Component } from 'react'
 import './Frontview.css';
 // import '/RequsetData.json'
 import { Link } from 'react-router-dom'
-import  Modal from 'react-bootstrap/Modal'
+import Modal from 'react-bootstrap/Modal'
 import './DiceGame.css';
 import Dice from './Dice.js'
 //  import './Dice.css'
 
 
 
-const URL = 'ws://localhost:8080'
+const URL = 'wss://f3-game-server.herokuapp.com'
 const ws = new WebSocket(URL)
- 
+
 
 export default class Frontview extends Component {
 
@@ -30,11 +30,11 @@ export default class Frontview extends Component {
       name: "srikanth",
       total: 0,
       accesstoken: "kasdfkajsdfkasdjfkasdjf.234asdfklasdjf",
-      diceOne : 'six',
-			diceTwo : 'six',
-			diceThree : 'six',
-			value : 'Roll the Dice!',
-			rolling : false
+      diceOne: 'six',
+      diceTwo: 'six',
+      diceThree: 'six',
+      value: 'Roll the Dice!',
+      rolling: false
     }
     this.rollDice = this.rollDice.bind(this);
   }
@@ -44,16 +44,16 @@ export default class Frontview extends Component {
 
   rollDice = (e) => {
 
-		
-		this.setState({
-			rolling : true
-		})
 
-		setTimeout(()=>{
-			ws.send(JSON.stringify({  
-				type:"diceRolling",
-			  }))
-    },2000)
+    this.setState({
+      rolling: true
+    })
+
+    setTimeout(() => {
+      ws.send(JSON.stringify({
+        type: "diceRolling",
+      }))
+    }, 2000)
   }
 
 
@@ -63,17 +63,17 @@ export default class Frontview extends Component {
     return { showModal: false };
   }
 
-  close=()=> {
+  close = () => {
     this.setState({ showModal: false });
   }
 
-  open=()=>{
+  open = () => {
     this.setState({ showModal: true });
   }
 
 
 
-  //join room event 
+  //join room event
   handleJoin = () => {
     console.log('join room event');
     ws.send(JSON.stringify({ "type": "join", "roomid": 12, "token": this.state.accesstoken }));
@@ -82,7 +82,7 @@ export default class Frontview extends Component {
   }
 
 
-  // join room event 
+  // join room event
   handleRoom = (msg, duration) => {
 
     //  var el = document.createElement("div");
@@ -97,7 +97,7 @@ export default class Frontview extends Component {
 
     ws.send(JSON.stringify({
       type: "diceRolling",
-      //   data:{  
+      //   data:{
       //      numbers:dies
       // }
     }))
@@ -126,19 +126,19 @@ export default class Frontview extends Component {
 
 
       let resp = JSON.parse(event.data)
-			let dies = resp.data.dies
-			let diceArr = ['one', 'two', 'three', 'four', 'five', 'six']
-			console.log("object",dies)
+      let dies = resp.data.dies
+      let diceArr = ['one', 'two', 'three', 'four', 'five', 'six']
+      console.log("object", dies)
 
-			if(resp.type === "results") {
-				this.setState({
-					rolling : false,
-					diceOne : diceArr[dies[0]-1], 
-					diceTwo : diceArr[dies[1]-1],
-					diceThree : diceArr[dies[2]-1]
-				})
-			}
-		  
+      if (resp.type === "results") {
+        this.setState({
+          rolling: false,
+          diceOne: diceArr[dies[0] - 1],
+          diceTwo: diceArr[dies[1] - 1],
+          diceThree: diceArr[dies[2] - 1]
+        })
+      }
+
 
 
 
@@ -401,7 +401,7 @@ export default class Frontview extends Component {
 
 
 
-  /// bet placed evnet  
+  /// bet placed evnet
 
 
   handlechangebet = () => {
@@ -605,8 +605,8 @@ export default class Frontview extends Component {
                     <a href=""><img className="img-fluid" src={process.env.PUBLIC_URL + "/Stats Button.png"} /></a>
                     <span onClick={this.handleJoin} ><img className="img-fluid square" src={process.env.PUBLIC_URL + "/table.png"} /></span>
                     <span onClick={e => this.handleRoom("Dies Rolled ", 2000)}><img className="img-fluid square" src={process.env.PUBLIC_URL + "/lobby.png"} /></span>
-                   
-                    <button  onClick={this.open} style={{ width: 40 }} >click</button>
+
+                    <button onClick={this.open} style={{ width: 40 }} >click</button>
 
                   </div>
                 </div>
@@ -619,34 +619,34 @@ export default class Frontview extends Component {
 
 
 
-        
+
         <Modal show={this.state.showModal} onHide={this.close}>
           <Modal.Header closeButton>
             <Modal.Title>F3 dice rolling</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-          <section className="DiceGame">
-				<section className="DiceGame-inner">
-					<Dice face={this.state.diceOne} rolling={this.state.rolling}/>	
-					<Dice face={this.state.diceTwo} rolling={this.state.rolling}/>
-					<Dice face={this.state.diceThree} rolling={this.state.rolling}/>
+            <section className="DiceGame">
+              <section className="DiceGame-inner">
+                <Dice face={this.state.diceOne} rolling={this.state.rolling} />
+                <Dice face={this.state.diceTwo} rolling={this.state.rolling} />
+                <Dice face={this.state.diceThree} rolling={this.state.rolling} />
 
-				</section>
-			<button 
-					onClick={this.rollDice} 
-					className="DiceGame-btn" 
-					disabled={this.state.rolling}> 
-					{this.state.value}
-				</button>
-				
-			</section>
+              </section>
+              <button
+                onClick={this.rollDice}
+                className="DiceGame-btn"
+                disabled={this.state.rolling}>
+                {this.state.value}
+              </button>
+
+            </section>
           </Modal.Body>
           <Modal.Footer>
             <button onClick={this.close}>Close</button>
           </Modal.Footer>
         </Modal>
       </div>
-     
+
 
 
 
