@@ -39,5 +39,17 @@
   },
   "devDependencies": {
     "concurrently": "^4.1.2"
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jellyGlass/f3client.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jellyGlass/f3client/issues"
+  },
+  "homepage": "https://github.com/jellyGlass/f3client#readme"
 }
