@@ -68,7 +68,12 @@ export default class Frontview extends Component {
   }
 
   open = () => {
-    this.setState({ showModal: true });
+    this.setState({
+      showModal: true,
+      diceOne: 'six',
+      diceTwo: 'six',
+      diceThree: 'six'
+    });
   }
 
 
