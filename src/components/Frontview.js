@@ -454,8 +454,13 @@ export default class Frontview extends Component {
                   <div className="col d-block side-content text-center bg font_color p-0">
 
 
-                    <img src={process.env.PUBLIC_URL + "/layer5.png"} />
-                    <img src={process.env.PUBLIC_URL + "/hot.png"} />
+                    <img src={process.env.PUBLIC_URL + "/Layer5.png"} />
+
+
+
+
+
+                    <img src={process.env.PUBLIC_URL + "/HOT.png"} />
                     <p id="number" className="mb-sm-0 py-lg-1">1</p>
                     <p id="number" className="mb-sm-0 py-lg-1">2</p>
                     <p id="number" className="mb-sm-0 py-lg-1">3</p>
