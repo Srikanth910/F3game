@@ -12,4 +12,19 @@ export const GameaccessToken =()=>{
     }).catch(err=>{
       console.log(err)
     })
-  }
+  };
+
+  export const Getdata=()=>{
+      
+    return	axios.
+    get(`${API_URL}/api/profile`).
+    then(res=>{
+      
+      return res.data;
+    }).catch(err=>{
+      console.log('error',err)
+    })
+   
+    
+   
+  };
