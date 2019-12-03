@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
-import Game from './components/Game'
+import Gamef3 from './components/Gamef3'
 
-// import Gamev from './components/Gamev'
+
+// import Game from './components/Game'
+
+
 
 export default class App extends Component {
   render() {
@@ -10,12 +13,11 @@ export default class App extends Component {
        {/* <iframe src='http://localhost:3000' /> */}
 
        
-        <Game/>
-        {/* <Gameview/> */}
-        {/* </iframe> */}
-        {/* <Gamev/> */}
 
-         {/* <Gameview/> */}
+       <Gamef3/>
+       {/* <Game/> */}
+
+     
         
         
       </div>

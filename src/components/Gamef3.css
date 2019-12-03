@@ -1,0 +1,340 @@
+
+.modal-90w{
+   max-width: auto !important;
+   max-height: auto !important;
+    
+}
+.modal-content {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-color:unset;
+    background-clip: padding-box;
+    border:none;
+    border-radius: .3rem;
+    outline: 0;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1050;
+    display: none;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    outline: 0;
+}
+.close {
+    position: relative;
+    color: red;
+    top: 6rem;
+    text-decoration: none;
+    right: 6rem;
+    z-index: 3;
+}
+.close:hover {
+    color: #000;
+    text-decoration: none;
+}
+.modal-header {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 1rem 1rem;
+    border-bottom: none;
+    border-top-left-radius: none;
+    border-top-right-radius: none;
+}
+
+.container{
+    max-width:1440px !important ;
+    max-height: 1024px !important;
+    padding: 0;
+
+
+
+
+}
+.balance{
+    position: absolute;
+    top: 2.8rem;
+    text-align: center;
+    font-family: monospace;
+    font-size: 1.6rem;
+    /* right: 11.4rem; */
+    left: 3.4rem;
+
+ }
+ .totalbet{
+    font-family: monospace;
+    position: absolute;
+    text-align: center;
+    right: 9rem;
+    top: 2.6rem;
+    font-size: 1.6rem;
+    /* font-weight: bold;
+    /* font-weight: bold; */
+
+ }
+
+.curser{
+    cursor: pointer;
+}
+body{
+    background: lightgray;
+}
+
+.bg-img{
+        width: 1440px !important;
+        height: 1024px !important;
+        background: url("../assests/bgg1.jpeg");
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+    }
+    .left-btns{
+        width: 163px;
+        height: 64px;
+    }
+    .rgt-icon{
+        width: 48px;
+        height: 48px;
+    }
+    .number-btns{
+        /* width: 84px;
+        height: 80px; */
+        width: 76px;
+        height: 76px;
+    }
+    .place-btn{
+        /* width: 171px;
+        height: 146px; */
+        width: 171px;
+        height: 115px;
+        position: absolute;
+        bottom: 2rem;
+        right: 2rem;
+        /* position: absolute; */
+    }
+    .six-rolls{
+        width: 145px;
+        height: 424px;
+    }
+    .current-bt{
+        width: 191px;
+        /* width: 100%; */
+        height: 285px;
+    }
+    .max-bet{
+        width: 667px !important;
+        height: 69px;
+    }
+    .statistic{
+        width: 268px;
+        height: 313px;
+    }
+    .bar-pad{
+        background: url('../assests/bet_pad.png');
+        width: 77px;
+        height: 46px;
+        background-repeat: no-repeat;
+        /* line-height: 300px; */
+        background-size: cover;
+        /* position: absolute; */
+        text-align: center;
+    }
+    .image-bars{
+        width: 77px;
+        height: 46px;
+    }
+    .click-number-text{
+        width: 222px;
+        height: 9px;
+    }
+
+    
+.slider {
+    -webkit-appearance: none;
+    width: 323px;
+    height: 12px;
+    position: relative;
+    border-radius: 5px;
+    z-index: 1;
+    background: #ede6e6f0;
+    outline: none;
+    /* opacity: 0.7; */
+    transform: rotate(-90deg);
+    transition: opacity .2s;
+    bottom: m;
+    top: 9.5rem;
+    right: 8rem;
+        }
+    .slider:hover {
+            opacity: 1;
+        }
+    
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+             background:url('../assests/bar1.png');
+             /* background-color: #561013; */
+    cursor: pointer;
+             
+        }
+    
+        .slider::-moz-range-thumb {
+             width: 30px;
+            height: 30px;
+    
+            border-radius: 50%;
+             background:url('../assests/bar1.png');
+             /* background-color: #561013; */
+    
+           
+        }
+
+        
+        .sliderbg{
+            background-color: #ffffffd4;
+            height: 15rem;
+            top: 1rem;
+            width: 3rem;
+            position: relative;
+            right: 0rem;
+            border-radius: 10px;
+         /* background-image: url('../assests/Bet_range.png');
+         background-repeat: no-repeat; */
+           
+         }
+         .betvalue{
+            height: 36px;   
+            position: relative;
+            left: 0.1rem;
+            top: 0.2rem;
+         }
+         .value{
+
+         }
+         .value1{
+            position: absolute;
+            left: 1rem;
+            top: 0.5rem;
+            font-size: 1.5rem;
+            font-family: monospace;
+            text-align: center;
+            color: #be0a0a;
+        
+        
+         }
+
+         .bars{
+            bottom: 3rem;
+            left: 7rem;
+        }
+    .bar{
+        width: 71px;
+        height: 403px;
+        left: 0.6rem;
+    }
+    .pro-bars{
+        /* width: 100%; */ 
+        bottom: 3rem;
+        width: 100%;
+        height: 200px;
+    }
+    .progress-bar-vertical {
+        width: 24px;
+        height: auto;
+        float: left;
+        padding: 5px;
+    }
+      
+      .progress-bar-vertical .progress-bar {
+        width: 100%;
+        height: 0;
+        -webkit-transition: height 0.6s ease;
+        -o-transition: height 0.6s ease;
+        transition: height 0.6s ease;
+      }
+      .progress {
+        transform: rotate(180deg);
+        background: none;
+    }
+    .progress-bar{
+        border-radius: 12px;
+    }
+    .bar-1{
+        background: #560014;
+    }
+    .bar-2{
+        background: #f9ff08;
+    }
+    .bar-3{
+        background: #0da9d9;
+    }
+    .bar-4{
+        background: #9b06cc;
+    }
+    .bar-5{
+        background: #ff0000;
+    }
+    .bar-6{
+        background: #00d451;
+    }
+
+   
+
+
+    .sr-only{
+        position: relative;
+        font-size: 9px;
+     /* color: black; */
+     color: black;
+    font-weight: 900;
+        margin: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        top: 6rem;
+       
+        transform: rotate(180deg);
+        width: 23px;
+        color: white;
+        height: 24px;
+        padding: 0;
+    }
+    .sr-only p{
+        margin-top: 6px;
+    }
+    .fa {
+  
+        color: white;
+        padding: 5px;
+        margin: 10px;
+        border: 1px solid #525050;
+        border-radius: 50%;
+    }
+   
+    .icons{
+        height: 33px;
+        /* width: 100%; */
+        /* margin-right: 16px; */
+    }
+    @media (min-width: 576px){
+        .modal-dialog {
+            
+                max-width: 95%;
+                margin: -3rem auto;
+            
+        }
+        }
