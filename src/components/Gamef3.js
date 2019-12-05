@@ -25,8 +25,8 @@ export default class Gamef3 extends Component {
             progressvalue1: 50,
             progressvalue2: 20,
             progressvalue3: 40,
-            progressvalue4: 90,
-            progressvalue6: 100,
+            progressvalue4: 70,
+            progressvalue6: 90,
 
             balance: 10000,
             showimg: false,
@@ -48,28 +48,28 @@ export default class Gamef3 extends Component {
 
     componentDidMount = () => {
         const ws = new WebSocket(URL);
-    
 
-            Getdata().then(userGetdata => {
-                console.log('id', userGetdata.userId);
-                this.setState({
-                    userId: userGetdata.userId,
-                })
 
-            }).catch(err => {
-                console.log("error", err)
+        Getdata().then(userGetdata => {
+            console.log('id', userGetdata.userId);
+            this.setState({
+                userId: userGetdata.userId,
             })
+
+        }).catch(err => {
+            console.log("error", err)
+        })
 
 
 
 
         GameaccessToken().then(Token => {
-        	console.log('responce Token', Token);
-        	this.setState({
-        		accessToken: Token.accessToken
-        	})
+            // console.log('responce Token', Token);
+            this.setState({
+                accessToken: Token.accessToken
+            })
         }).catch(err => {
-        	console.log('error,', err)
+            console.log('error,', err)
         });
 
 
@@ -78,21 +78,21 @@ export default class Gamef3 extends Component {
 
         ws.onopen = () => {
 
-        	console.log('access Token', this.state.accessToken)
+            // console.log('access Token', this.state.accessToken)
 
 
-        	console.log(' connection established');
+            console.log(' connection established');
 
 
-        	ws.send(
-        		JSON.stringify(
-        			{
-        				type: "join",
-        				data: {
-        					"accessToken": this.state.accessToken,
-        					"roomId": this.state.userId,
-        				}
-        			}));
+            ws.send(
+                JSON.stringify(
+                    {
+                        type: "join",
+                        data: {
+                            "accessToken": this.state.accessToken,
+                            "roomId": this.state.userId,
+                        }
+                    }));
 
 
         };
@@ -100,67 +100,66 @@ export default class Gamef3 extends Component {
 
         ws.onmessage = (event) => {
             // console.log("message send sever", event);
-            
-
-             if( JSON.parse(event.data).type ==="connection"){
-                 console.log('connectin evnet', event.data);
-             };
 
 
+            if (JSON.parse(event.data).type === "connection") {
+                console.log('connectin evnet', event.data);
+            };
 
-        	if (JSON.parse(event.data).type === "join-room") {
+
+
+            if (JSON.parse(event.data).type === "join-room") {
                 console.log('join room event', event.data)
-        		console.log(" Join:", JSON.parse(event.data).data.room);
+                console.log(" Join:", JSON.parse(event.data).data.room);
 
-        		const Joinroom = JSON.parse(event.data).data.room
+                const Joinroom = JSON.parse(event.data).data.room;
+                this.setState({
+                    roomId: Joinroom
 
-
-        		this.setState({
-        			roomId: Joinroom
-
-        		})
-        		// console.log('room number ', this.state.roomId)
+                })
+                // console.log('room number ', this.state.roomId)
 
             };
-            if(JSON.parse(event.data).type ==="summary") {
+            if (JSON.parse(event.data).type === "summary") {
                 console.log('summary data dispayed', event.data);
-           }
+            }
 
-           if(JSON.parse(event.data)==="placebet"){
+            if (JSON.parse(event.data) === "placebet") {
                 console.log('')
-           }
+            }
 
         };
 
 
         /// websocket onerror state
-       ws.onerror = (event) => {
-        	console.log('error websocket', event)
+        ws.onerror = (event) => {
+            console.log('error websocket', event)
         };
 
         // web socket on closes state 
 
         ws.onclose = (event) => {
 
-        	console.log('closed event', event);
-        	const ws = new WebSocket(URL);
-        	ws.onopen = () => {
-        		console.log('userid', this.state.RoomId)
+            console.log('closed event', event);
+           
+            this.handlelastroll();
+            // ws.onopen = () => {
+            //     console.log('userid', this.state.RoomId);
 
 
-        		console.log(' connection established');
+            //     console.log(' connection established');
 
 
-        		ws.send(
-        			JSON.stringify(
-        				{
-        					type: "join",
-        					data: {
-        						"accessToken": this.state.accessToken,
-        						"roomId": this.state.RoomId
-        					}
-        				}));
-        	}
+            //     ws.send(
+            //         JSON.stringify(
+            //             {
+            //                 type: "join",
+            //                 data: {
+            //                     "accessToken": this.state.accessToken,
+            //                     "roomId": this.state.RoomId
+            //                 }
+            //             }));
+            // }
 
 
 
@@ -414,12 +413,15 @@ export default class Gamef3 extends Component {
 
                 </Modal.Header>
                 <div className="container">
-                    <div class="bg-img  d-flex align-content-end flex-wrap">
+                    <div className="bg-img  d-flex align-content-end flex-wrap">
+                    <div className="col-12 d-flex justify-content-end icon-position">
 
-
- 
-
-  
+                        <div><i className="fa fa-volume-up"></i></div>
+                        <div><i className="fa fa-cog"></i></div>
+                        <div><i className="fa fa-history"></i></div>
+                        <div><i className="fa fa-question-circle"></i> </div>
+                        <div><i className="fa fa-compress"></i></div>
+                        </div>
 
 
 
@@ -428,10 +430,22 @@ export default class Gamef3 extends Component {
                             {this.state.lastroll &&
                                 <div >
 
-                                    <img src={process.env.PUBLIC_URL + "/lastRoll.png"} className=" img-fluid six-rolls" /></div>}
+                                    <img src={process.env.PUBLIC_URL + "/lastRoll.png"} className=" img-fluid six-rolls" />
+                                </div>}
 
-                                    <div >
-                            <img src={process.env.PUBLIC_URL + "/currentBet.png"} className="img-fluid current-bt" /></div>
+                            <div >
+
+                                <div class="current-bet">
+                                    <div class="d-flex">
+                                        <p class="tip">Feeling <br /> Good !</p>
+                                        <button class="tip-btn">TIP DEALER</button>
+                                    </div>
+                                    <img src={process.env.PUBLIC_URL + "/currentBet.png"} className="img-fluid current-bt" />
+
+
+                                </div>
+
+                            </div>
 
                         </div>
                         <div class="col-6 p-0 d-flex align-items-end">
@@ -488,7 +502,7 @@ export default class Gamef3 extends Component {
                         </div>
 
 
-                        
+
                             <div className="col-8 p-0 d-flex align-items-end">
 
 
@@ -501,49 +515,49 @@ export default class Gamef3 extends Component {
                                                 <div></div>
                                                 <div className=" progress-bar bar-1" role="progressbar" value="60" aria-valuemin="0" aria-valuemax="100"
                                                     style={{ height: `${this.state.progressvalue}%` }}>
-                                                     <div class="sr-only ">
-                                <p style={{color:'black'}}>{this.state.progressvalue}</p>
-                                                                            </div>
+                                                    <div class="sr-only ">
+                                                        <p style={{ color: '#560014' }}>{this.state.progressvalue}</p>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div className="col-2 progress progress-bar-vertical">
                                                 <div className="progress-bar bar-2" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
                                                     style={{ height: `${this.state.progressvalue1}%` }}>
-                                                 <div class="sr-only ">
-                                <p style={{color:'black'}}>{this.state.progressvalue1}</p>
-                                                                            </div>
+                                                    <div class="sr-only ">
+                                                        <p style={{ color: '#f9ff08' }}>{this.state.progressvalue1}</p>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="col-2 progress progress-bar-vertical">
                                                 <div className="progress-bar bar-3" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
                                                     style={{ height: `${this.state.progressvalue2}%` }}>
                                                     <div class="sr-only ">
-                                <p style={{color:'black'}}>{this.state.progressvalue2}</p>
-                                                                            </div>
+                                                        <p style={{ color: '#0da9d9' }}>{this.state.progressvalue2}</p>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div className="col-2 progress progress-bar-vertical">
                                                 <div className="progress-bar bar-4" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
                                                     style={{ height: `${this.state.progressvalue3}%` }}>
-                                                   <div class="sr-only ">
-                                <p style={{color:'black'}}>{this.state.progressvalue3}</p>
-                                                                            </div>
-                                         </div>
+                                                    <div class="sr-only ">
+                                                        <p style={{ color: '#9b06cc' }}>{this.state.progressvalue3}</p>
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div className="col-2 progress progress-bar-vertical">
                                                 <div className="progress-bar bar-5" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
                                                     style={{ height: `${this.state.progressvalue4}%` }}>
-                                                      <div class="sr-only ">
-                                <p style={{color:'black'}}>{this.state.progressvalue4}</p>
-                                                                            </div>
+                                                    <div class="sr-only ">
+                                                        <p style={{ color: '#ff0000' }}>{this.state.progressvalue4}</p>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div className="col-2 progress progress-bar-vertical">
                                                 <div className="progress-bar bar-6" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
                                                     style={{ height: `${this.state.progressvalue6}%` }}>
-                                                     <div class="sr-only ">
-                                <p style={{color:'black'}}>{this.state.progressvalue6}</p>
-                                                                            </div>
+                                                    <div class="sr-only ">
+                                                        <p style={{ color: '#00d451' }}>{this.state.progressvalue6}</p>
+                                                    </div>
                                                 </div>
                                             </div>
 

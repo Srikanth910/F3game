@@ -274,26 +274,51 @@ body{
     .progress-bar{
         border-radius: 12px;
     }
-    .bar-1{
-        background: #560014;
-    }
-    .bar-2{
-        background: #f9ff08;
-    }
-    .bar-3{
-        background: #0da9d9;
-    }
-    .bar-4{
-        background: #9b06cc;
-    }
-    .bar-5{
-        background: #ff0000;
-    }
-    .bar-6{
-        background: #00d451;
-    }
 
-   
+
+   .bar-1{
+    background: linear-gradient(to bottom, #34010E 0%, #A5022A 100%)
+}
+.bar-2{
+    background: linear-gradient(to bottom, #B0B305 0%, #E8EC06  100%)
+}
+.bar-3{
+    background: linear-gradient(to bottom, #037B9D 0%,  #0EA1D2 100%)
+}
+.bar-4{
+    background: linear-gradient(to top, #9406CA 0%, #7A079E 100%)
+}
+.bar-5{
+    background: linear-gradient(to bottom, #B8020C 0%, #F70100 100%)
+}
+.bar-6{
+    background: linear-gradient(to top, #04D04F 0%, #01D250 100%)
+}
+
+.tip {
+    position: absolute;
+    /* right: 11rem; */
+    bottom: 2px;
+    text-align: center;
+    padding: 0 11px;
+    display: flex;
+    font-size: 16px;
+    font-weight: 900;
+}
+.tip-btn{
+    top: 16.4rem;
+    position: relative;
+    left: 5rem;
+
+    font-size: 14px;
+    padding: 7px 14px;
+    color: white;
+    font-weight: 900;
+    border-radius: 13px;
+    border-style: none !important;
+    background: #ff0000 !important;
+}
+
 
 
     .sr-only{
@@ -319,6 +344,7 @@ body{
     .fa {
   
         color: white;
+        cursor: pointer;
         padding: 5px;
         margin: 10px;
         border: 1px solid #525050;
@@ -330,6 +356,13 @@ body{
         /* width: 100%; */
         /* margin-right: 16px; */
     }
+    .icon-position{
+        position: absolute;
+        right: 11rem;
+        top: 4rem;
+    
+    }
+    
     @media (min-width: 576px){
         .modal-dialog {
             
