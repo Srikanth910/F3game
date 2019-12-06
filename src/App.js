@@ -1,26 +1,32 @@
 import React, { Component } from 'react'
-import Gamef3 from './components/Gamef3'
+
+import Lobby from './components/Lobby'
+
+import {BrowserRouter, Route} from 'react-router-dom'
 
 
-// import Game from './components/Game'
+import Gamef3 from  './components/Gamef3'
 
 
 
 export default class App extends Component {
   render() {
     return (
-      <div>
-       {/* <iframe src='http://localhost:3000' /> */}
 
-       
+      // <Gamef3/>
 
-       <Gamef3/>
-       {/* <Game/> */}
+
+      <BrowserRouter>
+      
+      
+      <Route path ='/' component={Gamef3}/>
+      <Route path ="/Lobby" component={Lobby}/> 
+      </BrowserRouter>
 
      
         
         
-      </div>
+    
     )
   }
 }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Modal from 'react-bootstrap/Modal';
+import {Link } from 'react-router-dom'
 import './Gamef3.css'
 import { GameaccessToken, Getdata } from './Action/ServerApi';
 const URL = 'wss://f3-gs.jaqk.in/rooms/85ec04b2-ec2f-49be-8840-363370431b7d';
@@ -13,7 +14,8 @@ export default class Gamef3 extends Component {
         super(props)
 
         this.state = {
-            showModal: true,
+            
+            // showModal: true,
             isFullscreenEnabled: false,
 
             min: 0,
@@ -44,9 +46,17 @@ export default class Gamef3 extends Component {
     }
 
 
+componentWillReceiveProps=()=>{
+    this.setState({
+        showModal:true
+    })
+    
+
+}
 
 
     componentDidMount = () => {
+        
         const ws = new WebSocket(URL);
 
 
@@ -166,38 +176,25 @@ export default class Gamef3 extends Component {
         }
 
     };
-
+   
 
 
     getInitialState() {
         return {
+            
             showModal: false,
 
 
         };
     }
-    modelclose = () => {
-
-        this.setState({
-            show: false
-        })
-
-    }
-
-    handleopen = () => {
-        this.setState({
-            show: true
-
-        })
-    }
-
+   
     close = () => {
         this.setState({
             showModal: false,
             setShow: false
 
         });
-        window.location.href = "http://localhost:8000/LiveCasino"
+        // window.location.href = "http://localhost:8000/LiveCasino"
     }
 
     open = () => {
@@ -407,6 +404,10 @@ export default class Gamef3 extends Component {
                 show={this.state.showModal}
 
                 className="modal-90w"
+           onclose={this.state.close}
+                
+
+                
             >
 
                 <Modal.Header closeButton onClick={this.close}>
@@ -779,7 +780,11 @@ export default class Gamef3 extends Component {
 
                                     <div className="d-flex align-items-end">
                                         <img src={process.env.PUBLIC_URL + "/table.png"} alt="" className="curser" />
-                                        <img src={process.env.PUBLIC_URL + "/lobby.png"} alt="" className="curser" />
+
+                                        <Link to={{pathname:'/Lobby', 
+                                          
+                                        }} onClick={this.close}>
+                                     <img  src={process.env.PUBLIC_URL + "/lobby.png"} alt="" className="curser" /></Link>
 
                                     </div>
                                 </div>
