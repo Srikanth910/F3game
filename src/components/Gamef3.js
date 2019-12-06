@@ -15,7 +15,7 @@ export default class Gamef3 extends Component {
 
         this.state = {
             
-            // showModal: true,
+            showModal: true,
             isFullscreenEnabled: false,
 
             min: 0,
@@ -46,16 +46,21 @@ export default class Gamef3 extends Component {
     }
 
 
-componentWillReceiveProps=()=>{
-    this.setState({
-        showModal:true
-    })
     
 
-}
+     componentWillMount(){
+         
+       
+        
+     }
 
 
     componentDidMount = () => {
+        // this.setState({
+        //     showModal:true
+        // })
+    
+       
         
         const ws = new WebSocket(URL);
 
@@ -191,8 +196,8 @@ componentWillReceiveProps=()=>{
     close = () => {
         this.setState({
             showModal: false,
-            setShow: false
-
+        
+           
         });
         // window.location.href = "http://localhost:8000/LiveCasino"
     }
@@ -410,9 +415,9 @@ componentWillReceiveProps=()=>{
                 
             >
 
-                <Modal.Header closeButton onClick={this.close}>
+                {/* <Modal.Header closeButton onClick={this.close}>
 
-                </Modal.Header>
+                </Modal.Header> */}
                 <div className="container">
                     <div className="bg-img  d-flex align-content-end flex-wrap">
                     <div className="col-12 d-flex justify-content-end icon-position">

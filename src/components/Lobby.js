@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './Lobby.css'
+import Modal from 'react-bootstrap/Modal';
 import Gamef3 from './Gamef3'
 import {Link } from 'react-router-dom'
 
@@ -17,28 +18,27 @@ export default class Lobby extends Component {
   }
 
 
-  componentWillUnmount=()=>{
-    this.setState({
-        showModal:false
-    })
-}
-
-  // componentWillReceiveProps=()=>{
-  //   this.closeModal();
-  // }
- closeModal=()=>{
-  this.setState({
-    showModel:false
+ componentDidMount(){
+   this.setState({
+   showModal:true
   })
  }
   
   render() {
     return (
       <div>
-    
+         <Modal
+                show={this.state.showModal}
+
+                className="modal-90w"
+           onclose={this.state.close}
+                
+
+                
+            >
 
     {/* <Gamef3 closeevent={this.state.showmodel}/> */}
-        <div class="container">
+        <div class="container content">
 
 
           <div class="bg align-content-center justify-content-around  flex-wrap">
@@ -51,7 +51,9 @@ export default class Lobby extends Component {
 
                 {/* <!-- Card--1 --> */}
 
-                <div class="col-md-4 cards-section">
+
+     <a href="/">
+                <div class="col-md-4 cards-section cardcursor" href="/">
                   <div class="card text-white">
                     <img src={process.env.PUBLIC_URL + "/host_g1..png"} class="card-img" alt="..." />
                     <div class="card-img-overlay align-self-end">
@@ -73,10 +75,13 @@ export default class Lobby extends Component {
 
                   </div>
                 </div>
+                </a>
+               
 
                 {/* <!-- Card--2 --> */}
+                <a href ='/'>
 
-                <div class="col-4 cards-section">
+                <div class="col-4 cards-section cardcursor">
                   <div class="card text-white">
                     <img src={process.env.PUBLIC_URL + "/host_g2.png"} class="align-self-center card-img" alt="..." />
                     <div class="card-img-overlay align-self-end">
@@ -98,10 +103,12 @@ export default class Lobby extends Component {
 
                   </div>
                 </div>
+                </a>
 
               {/* <!-- Card--3 --> */}
-
-              <div class="col-4 cards-section">
+              
+              <a href ='/'>
+              <div class="col-4 cards-section cardcursor">
                 <div class="card text-white">
                   <img src={process.env.PUBLIC_URL + "/host_g3.png"} class="card-img" alt="..." />
                   <div class="card-img-overlay align-self-end">
@@ -123,10 +130,11 @@ export default class Lobby extends Component {
 
                 </div>
               </div>
+              </a>
 
               {/* <!-- Card--4 --> */}
-
-              <div class="col-4 cards-section ">
+              <a href ='/' >
+              <div class="col-4 cards-section  cardcursor">
                 <div class="card text-white">
                   <img src={process.env.PUBLIC_URL + "/host_g4.png"} class="card-img" alt="..." />
                   <div class="card-img-overlay align-self-end">
@@ -147,7 +155,9 @@ export default class Lobby extends Component {
 
 
                 </div>
-              </div>
+              </div>  
+              </a>
+
             </div>
 
 
@@ -157,7 +167,7 @@ export default class Lobby extends Component {
 <!-- Bottom --> */}
             <div class="bottom_div p-0 mb-auto d-flex justify-content-end align-items-center">
               <div class="col-4">
-              <Link to='/'> <img src={process.env.PUBLIC_URL + "/Balance.png"} class="bottom-layer" alt="" /></Link> 
+              <img src={process.env.PUBLIC_URL + "/Balance.png"} class="bottom-layer" alt="" />
               </div>
               <div class="col-8">
                 <img src={process.env.PUBLIC_URL + "/lobby_area.png"} class="bottom-layer" alt="" />
@@ -166,7 +176,10 @@ export default class Lobby extends Component {
 
           </div>
         </div>
+  
+      </Modal>
       </div>
+    
     )
   }
 }
