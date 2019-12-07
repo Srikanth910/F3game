@@ -41,6 +41,7 @@ const ws = new WebSocket(URL);
             roomId: '',
             Joinroom: '',
             lastroll: '',
+            currentbet:'',
             value: 0
 
         }
@@ -159,6 +160,7 @@ const ws = new WebSocket(URL);
         ws.onclose = (event) => {
 
             console.log('closed event', event);
+            this.currentbet();
            
             // this.handlelastroll();
             // ws.onopen = () => {
@@ -395,6 +397,12 @@ const ws = new WebSocket(URL);
         })
     }
 
+    currentbet=()=>{
+        this.setState({
+            currentbet:!this.state.currentbet
+        })
+    }
+
     progressbar = (e) => {
         console.log('value', this.state.value);
         this.setState({
@@ -444,15 +452,17 @@ const ws = new WebSocket(URL);
 
                             <div >
 
-                                <div class="current-bet">
+                            {this.state.currentbet &&  <div class="current-bet">
                                     <div class="d-flex">
                                         <p class="tip">Feeling <br /> Good !</p>
                                         <button class="tip-btn">TIP DEALER</button>
                                     </div>
+
+                                   
                                     <img src={process.env.PUBLIC_URL + "/currentBet.png"} className="img-fluid current-bt" />
 
 
-                                </div>
+                                </div>}
 
                             </div>
 
