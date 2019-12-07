@@ -2,26 +2,37 @@ import React, { Component } from 'react'
 import './Lobby.css'
 import Modal from 'react-bootstrap/Modal';
 import Gamef3 from './Gamef3'
+import { withRouter } from 'react-router-dom'
 import {Link } from 'react-router-dom'
 
-export default class Lobby extends Component {
+class Lobby extends Component {
 
 
 
   constructor(props) {
     super(props)
   
-    this.state = {
+    this.state = {  
       showmodel:false
        
     }
   }
 
+  componentWillMount(){
+     this.open()
+
+
+  }
+
+  open=()=>{
+    this.setState({
+      showModal:true
+     })
+
+  }
 
  componentDidMount(){
-   this.setState({
-   showModal:true
-  })
+   
  }
   
   render() {
@@ -44,7 +55,7 @@ export default class Lobby extends Component {
           <div class="bg align-content-center justify-content-around  flex-wrap">
             {/* <!-- Logo --> */}
             <div class="row justify-content-md-center mb-5 p-0 mr-0">
-              <img src={process.env.PUBLIC_URL + "/logo.png"} class="logo" class=" align-self-center" alt="..." />
+              <img src={process.env.PUBLIC_URL + "/logo.png"} class="logo align-self-center"  alt="..." />
             </div>
 
               <div class="row justify-content-around around">
@@ -52,7 +63,7 @@ export default class Lobby extends Component {
                 {/* <!-- Card--1 --> */}
 
 
-     <a href="/">
+     <Link to="/">
                 <div class="col-md-4 cards-section cardcursor" href="/">
                   <div class="card text-white">
                     <img src={process.env.PUBLIC_URL + "/host_g1..png"} class="card-img" alt="..." />
@@ -75,11 +86,11 @@ export default class Lobby extends Component {
 
                   </div>
                 </div>
-                </a>
+                </Link>
                
 
                 {/* <!-- Card--2 --> */}
-                <a href ='/'>
+                <Link  Link to ="/">
 
                 <div class="col-4 cards-section cardcursor">
                   <div class="card text-white">
@@ -103,11 +114,11 @@ export default class Lobby extends Component {
 
                   </div>
                 </div>
-                </a>
+                </Link>
 
               {/* <!-- Card--3 --> */}
               
-              <a href ='/'>
+              <Link to ='/'>
               <div class="col-4 cards-section cardcursor">
                 <div class="card text-white">
                   <img src={process.env.PUBLIC_URL + "/host_g3.png"} class="card-img" alt="..." />
@@ -130,10 +141,10 @@ export default class Lobby extends Component {
 
                 </div>
               </div>
-              </a>
+              </Link>
 
               {/* <!-- Card--4 --> */}
-              <a href ='/' >
+              <Link to ='/' >
               <div class="col-4 cards-section  cardcursor">
                 <div class="card text-white">
                   <img src={process.env.PUBLIC_URL + "/host_g4.png"} class="card-img" alt="..." />
@@ -156,7 +167,7 @@ export default class Lobby extends Component {
 
                 </div>
               </div>  
-              </a>
+              </Link>
 
             </div>
 
@@ -183,3 +194,5 @@ export default class Lobby extends Component {
     )
   }
 }
+
+export default withRouter(Lobby)

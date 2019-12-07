@@ -2,20 +2,21 @@ import React, { Component } from 'react'
 import Modal from 'react-bootstrap/Modal';
 import {Link } from 'react-router-dom'
 import './Gamef3.css'
+import { withRouter } from 'react-router-dom'
 import { GameaccessToken, Getdata } from './Action/ServerApi';
 const URL = 'wss://f3-gs.jaqk.in/rooms/85ec04b2-ec2f-49be-8840-363370431b7d';
 
 
 const ws = new WebSocket(URL);
 
-export default class Gamef3 extends Component {
+ class Gamef3 extends Component {
 
     constructor(props) {
         super(props)
 
         this.state = {
             
-            showModal: true,
+            // showModal: true,
             isFullscreenEnabled: false,
 
             min: 0,
@@ -49,6 +50,7 @@ export default class Gamef3 extends Component {
     
 
      componentWillMount(){
+
          
        
         
@@ -56,6 +58,7 @@ export default class Gamef3 extends Component {
 
 
     componentDidMount = () => {
+        this.open();
         // this.setState({
         //     showModal:true
         // })
@@ -157,7 +160,7 @@ export default class Gamef3 extends Component {
 
             console.log('closed event', event);
            
-            this.handlelastroll();
+            // this.handlelastroll();
             // ws.onopen = () => {
             //     console.log('userid', this.state.RoomId);
 
@@ -785,21 +788,14 @@ export default class Gamef3 extends Component {
 
                                     <div className="d-flex align-items-end">
                                         <img src={process.env.PUBLIC_URL + "/table.png"} alt="" className="curser" />
-
-                                        <Link to={{pathname:'/Lobby', 
-                                          
-                                        }} onClick={this.close}>
-                                     <img  src={process.env.PUBLIC_URL + "/lobby.png"} alt="" className="curser" /></Link>
+                                 <Link to ="/Lobby">
+                                     <img    onClick={this.close} src={process.env.PUBLIC_URL + "/lobby.png"} alt="" className="curser" /></Link>
 
                                     </div>
                                 </div>
 
                             </div>
                         </div>
-
-
-
-
 
 
 
@@ -814,6 +810,10 @@ export default class Gamef3 extends Component {
                 </div>
 
             </Modal>
+
+            
         )
     }
 }
+
+export default withRouter(Gamef3)

@@ -17,10 +17,11 @@ export default class App extends Component {
 
 
       <BrowserRouter>
+      <div>
       
-      
-      <Route path ='/' component={Gamef3}/>
+      <Route  exact path="/"  component={Gamef3}/>
       <Route path ="/Lobby" component={Lobby}/> 
+      </div>  
       </BrowserRouter>
 
      
